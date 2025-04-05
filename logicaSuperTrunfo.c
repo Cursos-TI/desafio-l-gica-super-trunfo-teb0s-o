@@ -1,11 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 
-// Desafio Super Trunfo - Países
-// Tema 2 - Comparação das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de comparação de cartas de cidades. 
-// Siga os comentários para implementar cada parte do desafio.
-
 float densidade_pop(unsigned long int populacao, float area){
   return populacao / area;
 }
@@ -122,114 +117,152 @@ int main() {
   estado_2, codigo_2, nome_2, populacao_2, area_2, pib_2, pto_turisticos_2, densidade_pop_2, pib_capta_2, super_poder_2);
 
   //Comparacoes:
-  int opcao;
-  printf("\nComparações:");
+  int opcao_1;
+  int opcao_2;
+  float atributo_1_c1;
+  float atributo_1_c2;
+  float atributo_2_c1;
+  float atributo_2_c2;
+  int comparacao;
 
-  printf("\n\nSelecione um atributo a ser comparado:\n1. Populacão\n2. Área\n3. PIB\n4. Quantidade de pontos turísticos\n5. Densidade populacional\n6. PIB per capta\n7. Super poder\n");
-  scanf("%d", &opcao);
+  printf("\nSeleção de atributos:");
+
+  printf("\n\nSelecione o primeiro atributo a ser comparado:\n1. População\n2. Área\n3. PIB\n4. Quantidade de pontos turísticos\n5. Densidade populacional\n6. PIB per capta\n7. Super poder\n");
+
+  scanf("%d", &opcao_1);
   printf("\n");
 
-  switch (opcao){
-    case 1:
-      //populacao
-      printf("População:\n");
-      if (populacao == populacao_2) {
-        printf("As cartas empataram!\n\n");
-      }
-      else if (populacao > populacao_2) {
-        printf("Carta 1 Venceu!\n\n");
-      }
-      else if (populacao < populacao_2) {
-        printf("Carta 2 Venceu!\n\n");
-      }
-      break;
-
-    case 2:
-      //area
-      printf("Área:\n");
-      if (area == area_2) {
-        printf("As cartas empataram!\n\n");
-      }
-      else if (area > area_2) {
-        printf("Carta 1 Venceu!\n\n");
-      }
-      else if (area < area_2) {
-        printf("Carta 2 Venceu!\n\n");
-      }
-      break;
-
-    case 3:
-      //pib
-      printf("PIB:\n");
-      if (pib == pib_2) {
-        printf("As cartas empataram!\n\n");
-      }
-      else if (pib > pib_2) {
-        printf("Carta 1 Venceu!\n\n");
-      }
-      else if (pib < pib_2) {
-        printf("Carta 2 Venceu!\n\n");
-      }
-      break;
-
-    case 4:
-      //pontos turisticos
-      printf("Quantidade de pontos Turísticos:\n");
-      if (pto_turisticos == pto_turisticos_2) {
-        printf("As cartas empataram!\n\n");
-      }
-      else if (pto_turisticos > pto_turisticos_2) {
-        printf("Carta 1 Venceu!\n\n");
-      }
-      else if (pto_turisticos < pto_turisticos_2) {
-        printf("Carta 2 Venceu!\n\n");
-      }
-      break;
-
-    case 5:
-      //densidade populacional
-      printf("Densidade populacional:\n");
-      if (densidade_pop_1 == densidade_pop_2) {
-        printf("As cartas empataram!\n\n");
-      }
-      else if (densidade_pop_1 < densidade_pop_2 ) {
-        printf("Carta 1 Venceu!\n\n");
-      }
-      else if (densidade_pop_1 > densidade_pop_2) {
-        printf("Carta 2 Venceu!\n\n");
-      }
-      break;
-
-    case 6:
-      //pib per capta
-      printf("PIB per capta:\n");
-      if (pib_capta_1 == pib_capta_2) {
-        printf("As cartas empataram!\n\n");
-      }
-      else if (pib_capta_1 > pib_capta_2) {
-        printf("Carta 1 Venceu!\n\n");
-      }
-      else if (pib_capta_1 < pib_capta_2) {
-        printf("Carta 2 Venceu!\n\n");
-      }
-      break;
-
-    case 7:
-      //super poder
-      printf("Super poder:\n");
-      if (super_poder_1 == super_poder_2) {
-        printf("As cartas empataram!\n\n");
-      }
-      else if (super_poder_1 > super_poder_2) {
-        printf("Carta 1 Venceu!\n\n");
-      }
-      else if (super_poder_1 < super_poder_2) {
-        printf("Carta 2 Venceu!\n\n");
-      }
-      break;
-    default:
-      printf("Opção inválida, tente novamente\n");
+  if (opcao_1 > 7) {
+    printf("Insira uma opção valida\n");
+    return 0;
+  }
+  if (opcao_1 < 1) {
+    printf("Insira uma opção valida\n");
+    return 0;
   }
 
+  //Segundo atributo
+  printf("Selecione o segundo atributo a ser comparado: \n");
+
+  if (opcao_1 != 1) {
+    printf("1. População\n");
+  }
+  if (opcao_1 != 2) {
+    printf("2. Área\n");
+  }
+  if (opcao_1 != 3) {
+    printf("3. PIB\n");
+  }
+  if (opcao_1 != 4) {
+    printf("4. Quantidade de pontos turísticos\n");
+  }
+  if (opcao_1 != 5) {
+    printf("5. Densidade Populacional\n");
+  }
+  if (opcao_1 != 6) {
+    printf("6. PIB per capta\n");
+  }
+  if (opcao_1 != 7) {
+    printf("7. Super poder\n");
+  }
+  else {
+    printf("Insira um valor válido\n");
+    return 0;
+  }
+
+  scanf("%d", &opcao_2);
+  printf("\n");
+
+  if (opcao_1 == opcao_2) {
+    printf("O primeiro atributo a ser comparado não pode ser o mesmo que o segundo\n");
+    return 0;
+  }
+  else if (opcao_2 > 7) {
+    printf("Insira uma opção valida\n");
+    return 0;
+  }
+  else if (opcao_2 < 1) {
+    printf("Insira uma opção valida\n");
+    return 0;
+  }
+
+
+  switch (opcao_1) {
+    case 1:
+      atributo_1_c1 = populacao;
+      atributo_1_c2 = populacao_2;
+      break;
+    case 2:
+      atributo_1_c1 = area;
+      atributo_1_c2 = area_2;
+      break;
+    case 3:
+      atributo_1_c1 = pib;
+      atributo_1_c2 = pib_2;
+      break;
+    case 4:
+      atributo_1_c1 = pto_turisticos;
+      atributo_1_c2 = pto_turisticos_2;
+      break;
+    case 5:
+      atributo_1_c1 = densidade_pop_1;
+      atributo_1_c2 = densidade_pop_2;
+      break;
+    case 6:
+      atributo_1_c1 = pib_capta_1;
+      atributo_1_c2 = pib_capta_2;
+      break;
+    case 7: 
+      atributo_1_c1 = super_poder_1;
+      atributo_1_c2 = super_poder_2;
+      break;
+  }
+
+  switch (opcao_2) {
+    case 1:
+      atributo_2_c1 = populacao;
+      atributo_2_c2 = populacao_2;
+      break;
+    case 2:
+      atributo_2_c1 = area;
+      atributo_2_c2 = area_2;
+      break;
+    case 3:
+      atributo_2_c1 = pib;
+      atributo_2_c2 = pib_2;
+      break;
+    case 4:
+      atributo_2_c1 = pto_turisticos;
+      atributo_2_c2 = pto_turisticos_2;
+      break;
+    case 5:
+      atributo_2_c1 = densidade_pop_1;
+      atributo_2_c2 = densidade_pop_2;
+      break;
+    case 6:
+      atributo_2_c1 = pib_capta_1;
+      atributo_2_c2 = pib_capta_2;
+      break;
+    case 7: 
+      atributo_2_c1 = super_poder_1;
+      atributo_2_c2 = super_poder_2;
+      break;
+  }
+
+  if (atributo_1_c1 + atributo_2_c2 == atributo_1_c2 + atributo_2_c2){
+    printf("Empate!\n");
+  }
+  else if(opcao_1 == 5) {
+    comparacao = atributo_2_c1 - atributo_1_c1 > atributo_2_c2 - atributo_1_c2 ? 1 : 2;
+    printf("Carta %d venceu!\n", comparacao);
+  }
+  else if(opcao_2 == 5) {
+    comparacao = atributo_1_c1 - atributo_2_c1 > atributo_1_c2 - atributo_2_c2 ? 1 : 2;
+    printf("Carta %d venceu!\n", comparacao);
+  }
+  else {
+    comparacao = atributo_1_c1 + atributo_2_c1 > atributo_1_c2 + atributo_2_c2 ? 1 : 2;
+    printf("Carta %d venceu!\n", comparacao);
+  }
   return 0;
 }
